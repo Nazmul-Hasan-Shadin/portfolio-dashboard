@@ -1,32 +1,45 @@
 "use client";
 import { Button, Layout, Menu } from "antd";
 import Sider from "antd/es/layout/Sider";
-import React, { useState } from "react";
+import React, { ReactNode, useState } from "react";
+import { FaBookOpen } from "react-icons/fa";
+import { FaFolderPlus } from "react-icons/fa";
+import { FaTerminal } from "react-icons/fa";
 import {
   ProjectOutlined,
   MenuUnfoldOutlined,
   MenuFoldOutlined,
 } from "@ant-design/icons";
+import { FaGraduationCap } from "react-icons/fa";
+
 import { Content, Header } from "antd/es/layout/layout";
 import Image from "next/image";
+import Link from "next/link";
 
 const items = [
   {
+    key: "Projects",
+    label: <Link href={"/projects"}>Projects</Link>,
+    icon: <FaTerminal />,
+  },
+  {
+    key: "Skills",
+    label: <Link href={"/skills"}>Skills</Link>,
+    icon: <FaGraduationCap />,
+  },
+  {
     key: "create-project",
-    label: "Create-Project",
+    label: <Link href={"/add-project"}> Add-Project</Link>,
     icon: <ProjectOutlined />,
   },
   {
     key: "Add skills",
-    label: "Add Skills",
-  },
-  {
-    key: "All skills",
-    label: "All Skills",
+    label: <Link href={"/add-skill"}>Add Skills</Link>,
+    icon: <FaFolderPlus />,
   },
 ];
 
-const Dashboard = () => {
+const Dashboard = ({ children }: { children: ReactNode }) => {
   const [collapsed, setCollapsed] = useState(false);
   return (
     <div>
@@ -70,7 +83,7 @@ const Dashboard = () => {
             />
           </Header>
           <Content style={{ margin: 24 }}>
-            <div>this is content</div>
+            <div> {children} </div>
           </Content>
         </Layout>
       </Layout>

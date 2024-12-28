@@ -3,11 +3,7 @@ import { Typography } from "antd";
 import React from "react";
 
 const HomePage = () => {
-  return (
-    <div>
-      <Dashboard />
-    </div>
-  );
+  return <div></div>;
 };
 
 export default HomePage;
